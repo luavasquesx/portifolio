@@ -217,18 +217,26 @@ nav a:hover {
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.project-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.4);
-}
-
+/* === Imagens de Projetos (ajuste de tamanho) === */
 .project-img-placeholder {
   width: 100%;
-  height: 160px;
-  background: linear-gradient(135deg, #3a3a3a, #222);
-  border-radius: 6px;
-  margin-bottom: 12px;
+  height: 200px;              /* altura maior para destaque */
+  object-fit: cover;          /* preenche sem distorcer */
+  border-radius: 10px;        /* cantos suaves */
+  margin-bottom: 15px;
+  background: none;
+  display: block;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* sombra suave */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.project-card:hover .project-img-placeholder {
+  transform: scale(1.03);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+}
+
+
+
 
 .project-title {
   font-weight: 600;
@@ -384,4 +392,33 @@ footer {
 
 html {
   scroll-behavior: smooth;
+}
+/* === Cabeçalho com imagem de fundo === */
+header {
+  background-image: url("images/cabeçalho.jpeg");
+  background-size: cover;         /* cobre toda a área */
+  background-position: center;    /* centraliza a imagem */
+  background-repeat: no-repeat;
+  height: 100px;                  /* altura do cabeçalho */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  position: relative;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+/* camada escura para contraste */
+header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 0;
+}
+
+header * {
+  position: relative;
+  z-index: 1;
 }
